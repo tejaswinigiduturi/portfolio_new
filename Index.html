@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tejaswini | Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Internal CSS -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b2221;
+            color: #e0f2f1;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(11, 34, 33, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            color: #00ffb3 !important;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            color: #e0f2f1 !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #00ffb3 !important;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(11, 34, 33, 0.7), rgba(11, 34, 33, 0.7)),
+                url('https://images.unsplash.com/photo-1531297484001-80022131f5a1') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00ffb3;
+            text-shadow: 0 0 10px #00ffb3;
+            animation: glow 2.5s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: #b2dfdb;
+        }
+
+        .btn-glow {
+            border: 2px solid #00ffb3;
+            color: #00ffb3;
+            border-radius: 25px;
+            padding: 10px 25px;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-glow:hover {
+            background: #00ffb3;
+            color: #0b2221;
+            box-shadow: 0 0 20px #00ffb3;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00ffb3;
+            }
+
+            to {
+                text-shadow: 0 0 25px #00ffb3, 0 0 40px #00ffb3;
+            }
+        }
+
+        h2 {
+            font-weight: 700;
+            color: #00ffb3;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.2s ease;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #00ffb3;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* About */
+        #about {
+            background-color: #112d2c;
+            padding: 80px 0;
+        }
+
+        /* Skills */
+        #skills {
+            background: #0b2221;
+            padding: 80px 0;
+        }
+
+        #skills .card {
+            background: #0f2928;
+            border: none;
+            border-radius: 12px;
+            color: #e0f2f1;
+            box-shadow: 0 0 20px rgba(0, 255, 179, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        #skills .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px #00ffb3;
+        }
+
+        /* Soft Skills */
+        #softskills {
+            background: #112d2c;
+            padding: 80px 0;
+        }
+
+        #softskills .card {
+            background: #0f2928;
+            border: none;
+            border-radius: 12px;
+            color: #e0f2f1;
+            box-shadow: 0 0 20px rgba(0, 255, 179, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        #softskills .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px #00ffb3;
+        }
+
+        /* Education */
+        #education {
+            background-color: #112d2c;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .edu-card {
+            background: #0f2928;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 179, 0.2);
+            color: #e0f2f1;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            padding: 25px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .edu-card h5 {
+            color: #00ffb3;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .edu-card span {
+            display: block;
+            font-size: 0.9rem;
+            color: #b2dfdb;
+            margin-bottom: 10px;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px #00ffb3;
+        }
+
+        /* Courses */
+        #courses {
+            background-color: #0b2221;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        /* Projects */
+        #projects {
+            background-color: #112d2c;
+            padding: 80px 0;
+        }
+
+        #projects .card {
+            background: #0f2928;
+            border: none;
+            border-radius: 15px;
+            color: #e0f2f1;
+            box-shadow: 0 0 20px rgba(0, 255, 179, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        #projects .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px #00ffb3;
+        }
+
+        /* Contact */
+        #contact {
+            padding: 80px 0;
+            background: #112d2c;
+        }
+
+        #contact a {
+            color: #00ffb3;
+            border: 2px solid #00ffb3;
+            border-radius: 25px;
+            padding: 10px 25px;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        #contact a:hover {
+            background: #00ffb3;
+            color: #0b2221;
+            box-shadow: 0 0 20px #00ffb3;
+        }
+
+        /* Footer */
+        footer {
+            background: #081615;
+            color: #b2dfdb;
+            padding: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+            border-top: 1px solid #00ffb3;
+        }
+
+        /* Animations */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        [data-animate].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tejaswini</a>
+            <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon bg-light rounded"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Technical Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#softskills">Soft Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Hello, I'm Tejaswini Giduthuri</h1>
+            <p>UI/UX Developer</p>
+            <div class="mt-4">
+                <a href="#contact" class="btn-glow">Contact Me</a>
+                <a href="Giduthuri_Tejaswini_Resume_UI_UX_Developer (2) (1).pdf" class="btn-glow" target="_blank">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container text-center" data-animate>
+            <h2>About Me</h2>
+            <p class="mt-4">
+                I’m a passionate <b>UI/UX Developer</b> focused on creating visually appealing,
+                user-centered, and responsive web designs.
+                I specialize in <b>HTML, CSS, JavaScript, Bootstrap, React, and Figma</b> to build intuitive digital
+                experiences.
+            </p>
+        </div>
+    </section>
+ <!-- Education -->
+   <!-- Education & Training -->
+<section id="education">
+  <div class="container text-center" data-animate>
+    <h2>Education & Training</h2>
+
+    <div class="edu-card">
+      <h5>UI/UX Developer Training</h5>
+      <span>August 2025 – November 2025</span>
+      <p>Tech Mahindra SMART Academy — Specialized in UI/UX Design, HTML5, CSS, Bootstrap, JavaScript, React, and Figma.</p>
+    </div>
+
+    <div class="edu-card">
+      <h5>B.Tech in Electronics</h5>
+      <span>2018 - 2023</span>
+      <p>Avanthi's Research and Technological Academy, Vizianagaram</p>
+    </div>
+
+    <div class="edu-card">
+      <h5>Intermediate (MPC)</h5>
+      <span>2016 - 2018</span>
+      <p>Naidu Junior College</p>
+    </div>
+
+    <div class="edu-card">
+      <h5>SSC</h5>
+      <span>2015 - 2016</span>
+      <p>A.M.G Residential English Medium High School</p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Technical Skills -->
+    <section id="skills">
+        <div class="container text-center" data-animate>
+            <h2>Technical Skills</h2>
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-3 mb-4">
+                    <div class="card p-3">
+                        <h5>HTML</h5>
+                        <p>Clean, semantic, and SEO-friendly markup.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card p-3">
+                        <h5>CSS & Bootstrap</h5>
+                        <p>Responsive and modern layouts with style.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card p-3">
+                        <h5>JavaScript</h5>
+                        <p>Adding motion and interactivity to designs.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card p-3">
+                        <h5>React</h5>
+                        <p>Building interactive and scalable UIs efficiently.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills -->
+    <section id="softskills">
+        <div class="container text-center" data-animate>
+            <h2>Soft Skills</h2>
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h5>🤝 Teamwork</h5>
+                        <p>Collaborating effectively with teams for success.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h5>⚡ Adaptability</h5>
+                        <p>Quick to learn and adapt to new challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container text-center" data-animate>
+            <h2>Projects</h2>
+            <div class="row mt-4 justify-content-center">
+
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h5>Cat Image Gallery</h5>
+                        <p>A responsive Cat Image Gallery built with HTML, CSS, and JavaScript that fetches and displays random cat images using Axios API integration..</p>
+                        <a href="https://tejaswinigiduturi.github.io/axios/" target="_blank" class="btn-glow mt-2">View</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h5>Portfolio Website</h5>
+                        <p>Personal portfolio showcasing UI/UX projects, animations, and responsive layouts built using
+                            HTML, CSS, and Bootstrap.</p>
+                        <a href="https://tejaswinigiduturi.github.io/newportfolio/" target="_blank" class="btn-glow mt-2">View</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h5>To-do-List</h5>
+                        <p>A simple and interactive To-Do List app built using HTML, CSS, and JavaScript to efficiently manage daily tasks with add, edit, and delete options</p>
+                        <a href="https://tejaswinigiduturi.github.io/Todolist/" target="_blank" class="btn-glow mt-2">View</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="d-flex justify-content-center flex-wrap">
+            <a href="tel:6302145645">📞 6302145645</a>
+            <a href="mailto:tejaswinigiduturi@gmail.com">✉️ tejaswinigiduturi@gmail.com</a>
+            <a href="https://www.linkedin.com/in/giduthuri-tejaswini-329201226/" target="_blank">💼 LinkedIn</a>
+            <a href="https://github.com/tejaswinigiduturi" target="_blank">💻 GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Tejaswini | All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const animateElements = document.querySelectorAll("[data-animate]");
+        const onScroll = () => {
+            animateElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add("visible");
+                }
+            });
+        };
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+    </script>
+
+</body>
+
+
+</html>
